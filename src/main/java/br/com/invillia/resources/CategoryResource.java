@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+
 @RestController
 @RequestMapping(value = "/category")
 public class CategoryResource {
@@ -23,4 +25,6 @@ public class CategoryResource {
 
         return ResponseEntity.ok().body(category);
     }
+
+//    categoryRepository.saveAll(Arrays.asList(cat1,cat2));
 }
