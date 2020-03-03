@@ -1,27 +1,26 @@
 package br.com.invillia.resources;
 
 import br.com.invillia.domain.Category;
+import br.com.invillia.service.CategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/category")
 public class CategoryResource {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public List<Category> listar(){
+    @Autowired
+    private CategoryService categoryService;
 
-        Category cat1 = new Category(1, "informática");
-        Category cat2 = new Category(2, "escritório");
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> find(@PathVariable Integer id){
 
-        List<Category> lista = new ArrayList<>();
-        lista.add(cat1);
-        lista.add(cat2);
+        Category category = categoryService.find(id);
 
-        return lista;
+        return ResponseEntity.ok().body(category);
     }
 }
