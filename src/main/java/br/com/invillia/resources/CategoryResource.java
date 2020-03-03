@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/categorias")
+@RequestMapping(value = "/category")
 public class CategoryResource {
 
     @RequestMapping(method = RequestMethod.GET)
