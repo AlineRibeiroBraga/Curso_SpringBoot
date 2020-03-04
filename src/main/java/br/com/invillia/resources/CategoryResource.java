@@ -19,12 +19,10 @@ public class CategoryResource {
     private CategoryService categoryService;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> find(@PathVariable Integer id){
+    public ResponseEntity<?> find(@PathVariable Integer id) {
 
         Category category = categoryService.find(id);
 
         return ResponseEntity.ok().body(category);
     }
-
-//    categoryRepository.saveAll(Arrays.asList(cat1,cat2));
 }

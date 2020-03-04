@@ -1,5 +1,6 @@
 package br.com.invillia.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,6 +26,8 @@ public class Product implements Serializable {
             joinColumns = @JoinColumn(name = "product_Id"),
             inverseJoinColumns = @JoinColumn(name = "category_Id")
     )
+
+    @JsonBackReference
     private List<Category> categories = new ArrayList<>();
 
     public Product(Integer id, String name, Double price) {

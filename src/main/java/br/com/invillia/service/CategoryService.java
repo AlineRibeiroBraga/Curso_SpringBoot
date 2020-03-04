@@ -2,9 +2,10 @@ package br.com.invillia.service;
 
 import br.com.invillia.domain.Category;
 import br.com.invillia.repository.CategoryRepository;
+
+import br.com.invillia.service.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Optional;
 
@@ -18,6 +19,7 @@ public class CategoryService {
 
         Optional<Category> category =categoryRepository.findById(id);
 
-        return category.orElse(null);
+        return category.orElseThrow( () -> new ObjectNotFoundException(String.format("Object wasn't found! Id: " +
+                "%d, Tipo: %s",id,Category.class.getName())));
     }
 }
