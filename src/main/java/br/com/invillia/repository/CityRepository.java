@@ -1,9 +1,9 @@
 package br.com.invillia.repository;
 
-import br.com.invillia.domain.Product;
+import br.com.invillia.domain.City;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface Productrepository extends JpaRepository<Product, Integer> {
+public interface CityRepository extends JpaRepository<City, Integer> {
 }
