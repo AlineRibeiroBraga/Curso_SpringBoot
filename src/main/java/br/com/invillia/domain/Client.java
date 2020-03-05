@@ -1,6 +1,7 @@
 package br.com.invillia.domain;
 
 import br.com.invillia.domain.enums.ClientKind;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jdk.jshell.Snippet;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,10 +26,12 @@ public class Client {
     private String CPF_CNPJ;
     private Integer clientKind;
 
+
     @ElementCollection
     @CollectionTable(name = "Phones")
     private Set<String> phones = new HashSet<>();
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "client")
     private List<Address> addresses = new ArrayList<>();
 

@@ -1,5 +1,6 @@
 package br.com.invillia.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class City implements Serializable {
 
     private String name;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "state_id") //foreign key
     private State state;
